@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 30px
+        }
+    </style>
+    <title>Example load 9pay payment</title>
+    <script>
+
+      paymentNinePayObj = {
+        env: 'STG',
+        merchantKey: 'Zo5RtQ',
+        amount: 10000,
+        method: 'CREDIT_CARD',
+        currency: 'VND',
+        lang: 'vi',
+        description: 'Payment by SDK',
+        invoice_no : Math.floor(Math.random() * 1000000),
+        return_url : 'your_link_to_receive_result'
+    };
+
+        (function () {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://sand-payment.9pay.vn/assets/sdk/js/9pay-sdk-1.0.0.min.js';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+            s.addEventListener('load', () => {
+                window.NinePaySDK.init(paymentNinePayObj);
+            });
+        })();
+    </script>
+</head>
+
+<body>
+    <h1>Checkout Page</h1>
+    <p>Process checkout with form below.</p>
+    <p><div id="NinePayCheckout"></div></p>
+</body>
+
+</html>
