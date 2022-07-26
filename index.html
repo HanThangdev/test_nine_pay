@@ -14,16 +14,10 @@
     <script>
 
       paymentNinePayObj = {
-        env: 'STG',
-        merchantKey: 'Zo5RtQ',
-        amount: 10000,
-        method: 'CREDIT_CARD',
-        currency: 'VND',
-        lang: 'vi',
-        description: 'Payment by SDK',
-        invoice_no : Math.floor(Math.random() * 1000000),
-        return_url : 'your_link_to_receive_result'
-    };
+        env: 'SANDBOX',
+        baseEncode: '',
+        signature: '',
+      };
 
         (function () {
             var s = document.createElement('script');
