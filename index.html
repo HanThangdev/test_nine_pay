@@ -19,9 +19,6 @@
         };
   
           (function () {
-              var message = "POST" + "\n" + END_POINT + "/payments/create" + "\n" + time + "\n" + httpQuery;
-              const MERCHANT_SECRET_KEY = 'tdXmP0gRl4hhaFK2TyAa8rGkZ1PkB7DLym4';
-              var signature = buildSignature(message, MERCHANT_SECRET_KEY);
               var s = document.createElement('script');
               s.type = 'text/javascript';
               s.async = true;
