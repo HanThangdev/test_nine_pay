@@ -11,28 +11,32 @@
         }
     </style>
     <title>Example load 9pay payment</title>
-    <script>
-      paymentNinePayObj = {
-        env: 'SANDBOX',
-        baseEncode: 'eyJtZXJjaGFudEtleSI6InRwNk5mdiIsInRpbWUiOjE2OTkyNTU0Mzc5MTcsImludm9pY2Vfbm8iOiJ1dzBTZjNsdSIsImFtb3VudCI6MTAwMDAsImRlc2NyaXB0aW9uIjoiVGhpcyBpcyBkZXNjcmlwdGlvbiIsInJldHVybl91cmwiOiJodHRwOi8vZmNkY2M0NzY3YWNiLm5ncm9rLmlvLyIsImJhY2tfdXJsIjoiaHR0cDovL2ZjZGNjNDc2N2FjYi5uZ3Jvay5pby8ifQ==',
-        signature: 'Nj1A5MAmHjeKxv++2ZsRJNHuiAGylyi8iQEilplLnW8=',
-      };
-
-        (function () {
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = 'https://sand-payment.9pay.vn/assets/sdk/js/9pay-sdk-1.0.0.min.js';
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-            s.addEventListener('load', () => {
-                window.NinePaySDK.init(paymentNinePayObj);
-            });
-        })();
-    </script>
+   
 </head>
 
 <body>
+    <script>
+        paymentNinePayObj = {
+          env: 'SANDBOX',
+          baseEncode: 'eyJtZXJjaGFudEtleSI6InRwNk5mdiIsInRpbWUiOjE2OTkyNTk4NTYsImludm9pY2Vfbm8iOiJEcUEwMVRSRyIsImFtb3VudCI6MTAwMDAsImRlc2NyaXB0aW9uIjoiVGhpcyBpcyBkZXNjcmlwdGlvbiIsInJldHVybl91cmwiOiJodHRwOi8vZmNkY2M0NzY3YWNiLm5ncm9rLmlvLyIsImJhY2tfdXJsIjoiaHR0cDovL2ZjZGNjNDc2N2FjYi5uZ3Jvay5pby8ifQ==',
+          signature: 'RRXBvRb8jdkbPV4v6BTXhJBCM5Bp/8wm85EZDELyjZw=',
+        };
+  
+          (function () {
+              var message = "POST" + "\n" + END_POINT + "/payments/create" + "\n" + time + "\n" + httpQuery;
+              const MERCHANT_SECRET_KEY = 'tdXmP0gRl4hhaFK2TyAa8rGkZ1PkB7DLym4';
+              var signature = buildSignature(message, MERCHANT_SECRET_KEY);
+              var s = document.createElement('script');
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = 'https://sand-payment.9pay.vn/assets/sdk/js/9pay-sdk-1.0.0.min.js';
+              var x = document.getElementsByTagName('script')[0];
+              x.parentNode.insertBefore(s, x);
+              s.addEventListener('load', () => {
+                  window.NinePaySDK.init(paymentNinePayObj);
+              });
+          })();
+      </script>
     <h1>Checkout Page</h1>
     <p>Process checkout with form below.</p>
     <p><div id="NinePayCheckout"></div></p>
