@@ -11,25 +11,6 @@
         }
     </style>
     <title>Example load 9pay payment</title>
-    <script>
-        paymentNinePayObj = {
-          env: 'SANDBOX',
-          baseEncode: 'eyJtZXJjaGFudEtleSI6InRwNk5mdiIsInRpbWUiOjE2OTkyNTk4NTYsImludm9pY2Vfbm8iOiJEcUEwMVRSRyIsImFtb3VudCI6MTAwMDAsImRlc2NyaXB0aW9uIjoiVGhpcyBpcyBkZXNjcmlwdGlvbiIsInJldHVybl91cmwiOiJodHRwOi8vZmNkY2M0NzY3YWNiLm5ncm9rLmlvLyIsImJhY2tfdXJsIjoiaHR0cDovL2ZjZGNjNDc2N2FjYi5uZ3Jvay5pby8ifQ==',
-          signature: 'RRXBvRb8jdkbPV4v6BTXhJBCM5Bp/8wm85EZDELyjZw=',
-        };
-  
-          (function () {
-              var s = document.createElement('script');
-              s.type = 'text/javascript';
-              s.async = true;
-              s.src = 'https://sand-payment.9pay.vn/assets/sdk/js/9pay-sdk-1.0.0.min.js';
-              var x = document.getElementsByTagName('script')[0];
-              x.parentNode.insertBefore(s, x);
-              s.addEventListener('load', () => {
-                  window.NinePaySDK.init(paymentNinePayObj);
-              });
-          })();
-      </script>
 </head>
 
 <body>
@@ -37,6 +18,33 @@
     <h1>Checkout Page</h1>
     <p>Process checkout with form below.</p>
     <p><div id="NinePayCheckout"></div></p>
+    <iframe srcdoc="
+  <html>
+    <head></head>
+    <body>
+      <script>
+        var paymentNinePayObj = {
+          env: 'SANDBOX',
+          baseEncode: 'eyJtZXJjaGFudEtleSI6InRwNk5mdiIsInRpbWUiOjE2OTkyNTk4NTYsImludm9pY2Vfbm8iOiJEcUEwMVRSRyIsImFtb3VudCI6MTAwMDAsImRlc2NyaXB0aW9uIjoiVGhpcyBpcyBkZXNjcmlwdGlvbiIsInJldHVybl91cmwiOiJodHRwOi8vZmNkY2c0NzY3YWNiLm5ncm9rLmlvLyIsImJhY2tfdXJsIjoiaHR0cDovL2ZjZGNjNDc2N2FjYi5uZ3Jvay5pby8ifQ==',
+          signature: 'RRXBvRb8jdkbPV4v6BTXhJBCM5Bp/8wm85EZDELyjZw=',
+        };
+  
+        (function () {
+          var s = document.createElement('script');
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'https://sand-payment.9pay.vn/assets/sdk/js/9pay-sdk-1.0.0.min.js';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+          s.addEventListener('load', () => {
+            window.NinePaySDK.init(paymentNinePayObj);
+          });
+        })();
+      </script>
+    </body>
+  </html>
+"></iframe>
+
 </body>
 
 </html>
