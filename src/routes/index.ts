@@ -176,7 +176,7 @@ const coreRoutes = [
     path: '/checkout',
     title: 'Checkout',
     component: Checkout,
-    layout: DefaultLayout,
+    // layout: DefaultLayout,
   },
 ];
 

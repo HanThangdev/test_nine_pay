@@ -234,8 +234,8 @@ const ManageChatbot = () => {
               <Loader className={classNames('col-span-3')} />
             ) : (
               !isEmptyObjectOrArray(ownerChatbot) &&
-              ownerChatbot.map((_, index) => {
-                return !_.is_deleted ? <ChatbotElement info={_} key={index} /> : <></>
+              ownerChatbot.filter(it => !it.is_deleted).map((_, index) => {
+                return <ChatbotElement info={_} key={index} />
               })
             )}
           </div>
